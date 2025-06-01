@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzaria Frontier | Sabores Futuristas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Pré-carregamento -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-spinner"></div>
+      <p>Aquecendo o forno a lenha...</p>
+    </div>
+  </div>
+
+  <!-- Overlay para modal -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Menu Mobile -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="logo">
+        <i class="fas fa-pizza-slice"></i>
+        <span>PIZZARIA FRONTIER</span>
+      </div>
+      <button class="mobile-menu-close" id="closeMobileMenu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <ul class="mobile-menu-nav">
+      <li><a href="#home">Início</a></li>
+      <li><a href="#menu">Cardápio</a></li>
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="#gallery">Galeria</a></li>
+      <li><a href="#testimonials">Depoimentos</a></li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+  </div>
+
+  <!-- Carrinho de compras -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-header">
+      <h3>Seu Carrinho</h3>
+      <button class="close-cart" id="closeCart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Itens do carrinho serão adicionados aqui via JavaScript -->
+    </div>
+    <div class="cart-total">
+      <span>Total:</span>
+      <span id="cartTotal">R$ 0.00</span>
+    </div>
+    <div class="cart-buttons">
+      <button class="btn btn-primary" style="width: 100%;">Finalizar Pedido</button>
+      <button class="btn btn-secondary" style="width: 100%;" id="continueShopping">Continuar Comprando</button>
+    </div>
+  </div>
+
+  <header>
+    <nav class="nav container" aria-label="Navegação principal">
+      <a href="#home" class="logo">
+        <i class="fas fa-pizza-slice"></i>
+        <span>PIZZARIA FRONTIER</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#home" aria-current="page">Início</a></li>
+        <li><a href="#menu">Cardápio</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#testimonials">Depoimentos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+      <div class="nav-cta">
+        <button class="btn btn-primary" id="openCart">
+          <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+        </button>
+      </div>
+      <button class="nav-toggle" id="openMobileMenu" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero com CTA -->
+    <section id="home" class="hero section">
+      <div class="floating-pizza">
+        <div class="pizza-base"></div>
+        <div class="pizza-toppings"></div>
+        <div class="pizza-slice"></div>
+      </div>
+      <div class="container grid grid-cols-2">
+        <div class="hero-content">
+          <h1>Sabores do futuro, <span style="color: var(--primary);">feitos no presente</span></h1>
+          <p>Pizzas artesanais com ingredientes premium, massa perfeita e forno a lenha. Entrega rápida e sabor inesquecível.</p>
+          <div class="hero-buttons">
+            <a href="#menu" class="btn btn-primary">
+              <i class="fas fa-pizza-slice"></i> Ver Cardápio
+            </a>
+            <a href="tel:+5511999998888" class="btn btn-secondary">
+              <i class="fas fa-phone"></i> Pedir Agora
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800&q=80" alt="Pizza artesanal" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats section">
+      <div class="container grid grid-cols-4">
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <p>Anos de Experiência</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">98%</div>
+          <p>Satisfação do Cliente</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <p>Sabores de Pizza</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">30min</div>
+          <p>Entrega Garantida</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Cardápio Futurista</h2>
+          <p>Sabores inovadores com toque artesanal</p>
+        </div>
+        <div class="grid grid-cols-3">
+          <!-- Cards de pizza serão gerados aqui -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container grid grid-cols-2">
+        <div>
+          <div class="section-title" style="text-align: left;">
+            <h2>Nossa Tecnologia</h2>
+            <p>Tradição artesanal com inovação futurista</p>
+          </div>
+          <p>Na Pizzaria Frontier, unimos o melhor dos dois mundos: a tradição centenária da pizza artesanal com tecnologias de ponta para garantir sabor e qualidade incomparáveis.</p>
+          <p>Nossos ingredientes são selecionados por algoritmos que garantem a máxima qualidade e frescor. A massa é preparada com fermentação controlada por IA para textura perfeita.</p>
+          <p>O segredo está na combinação entre o forno a lenha tradicional e sensores de temperatura de última geração que garantem o ponto ideal de cada pizza.</p>
+          <div style="margin-top: 25px;">
+            <a href="#contact" class="btn btn-primary">
+              <i class="fas fa-store"></i> Visite Nossa Pizzaria
+            </a>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Forno a lenha" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Galeria 3D</h2>
+          <p>Imersão em nossos sabores futuristas</p>
+        </div>
+        <div class="gallery-grid">
+          <!-- Itens da galeria serão gerados aqui -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Depoimentos</h2>
+          <p>O que nossos clientes dizem sobre a experiência</p>
+        </div>
+        <div class="grid grid-cols-3">
+          <!-- Depoimentos serão gerados aqui -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Entre em Contato</h2>
+          <p>Reserve uma mesa ou faça seu pedido</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Informações</h3>
+            <p>Estamos prontos para levar você a uma experiência gastronômica futurista!</p>
+            
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4>Endereço</h4>
+                <p>Av. Tecnologia, 2025<br>Bairro Futurista, São Paulo</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div>
+                <h4>Telefone</h4>
+                <p>(11) 3030-4040</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4>E-mail</h4>
+                <p>contato@pizzariafrontier.tech</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-card">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h4>Horário</h4>
+                <p>Segunda a Sábado: 18h - 00h<br>Domingo: 18h - 23h</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <form action="#" method="post" id="contact-form">
+              <div class="form-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome" required>
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefone</label>
+                <input type="tel" id="phone" name="phone" placeholder="Seu telefone">
+              </div>
+              <div class="form-group">
+                <label for="service">Assunto</label>
+                <select id="service" name="service" required>
+                  <option value="">Selecione um assunto</option>
+                  <option value="order">Fazer Pedido</option>
+                  <option value="reservation">Reservar Mesa</option>
+                  <option value="event">Evento Corporativo</option>
+                  <option value="other">Outros</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3><i class="fas fa-pizza-slice"></i> PIZZARIA FRONTIER</h3>
+          <p>Tradição artesanal com tecnologia futurista para uma experiência gastronômica única.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Links Rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#menu">Cardápio</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#gallery">Galeria</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Horário de Funcionamento</h4>
+          <ul class="footer-links">
+            <li>Segunda a Sábado: 18h - 00h</li>
+            <li>Domingo: 18h - 23h</li>
+            <li>Feriados: 18h - 23h</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Newsletter</h4>
+          <p>Receba promoções e novidades exclusivas.</p>
+          <form class="footer-form">
+            <input type="email" placeholder="Seu e-mail" required>
+            <button type="submit" class="btn btn-primary">Inscrever</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Pizzaria Frontier. Todos os direitos reservados. | Desenvolvido com <i class="fas fa-heart" style="color: var(--accent);"></i> para amantes de pizza</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Voltar ao Topo -->
+  <button class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+                                 </html>
